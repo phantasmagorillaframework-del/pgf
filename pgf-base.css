@@ -1,0 +1,559 @@
+/* ===========================================================
+    root
+=========================================================== */
+:root {
+
+/* -----------------------------------------------------------
+    color
+----------------------------------------------------------- */
+/* text */
+{block:color-root-color-textBase}
+    --pgf-color-text: {color:root-color-textBase};
+{/block:color-root-color-textBase}
+
+/* text light */
+{block:color-root-color-textLight}
+    --pgf-color-text-light: {color:root-color-textLight};
+{/block:color-root-color-textLight}
+
+/* header text */
+{block:color-root-color-textHeader}
+    --pgf-color-textHeader: {color:root-color-textHeader};
+{/block:color-root-color-textHeader}
+
+/* bg */
+{block:color-root-color-siteBackground}
+    --pgf-color-bg: {color:root-color-siteBackground};
+{/block:color-root-color-siteBackground}
+
+/* accent */
+{block:color-root-color-siteAccent}
+    --pgf-color-accent: {color:root-color-siteAccent};
+{/block:color-root-color-siteAccent}
+
+/* danger */
+{block:color-root-color-siteDanger}
+    --pgf-color-danger: {color:root-color-siteDanger};
+{/block:color-root-color-siteDanger}
+
+/* header */
+{block:if-setting-headerBackground}
+{block:color-root-color-headerBackground}
+    --pgf-color-header-bg: {color:root-color-headerBackground};
+{/block:color-root-color-headerBackground}
+{/block:if-setting-headerBackground}
+
+{block:not_if-setting-headerBackground}
+    --pgf-color-header-bg: transparent;
+{/block:not_if-setting-headerBackground}
+
+--pgf-color-header-logo: {select:root-color-logo};
+
+
+/* svg icon */
+  --pgf-color-icon-fill: #111;
+  --pgf-color-icon-stroke: var(--pgf-color-text);
+
+
+/* -----------------------------------------------------------
+    font
+----------------------------------------------------------- */
+/* familly */
+--pgf-font-familly: Inter, "Noto Sans JP", system-ui, sans-serif;
+
+/* -----------------------------------------------------------
+    shadow
+----------------------------------------------------------- */
+--pgf-shadow-none: none;
+
+/* -----------------------------------------------------------
+    transition & animation
+----------------------------------------------------------- */
+--pgf-transition-fast: .1s ease;
+--pgf-transition-medium: .25s ease;
+--pgf-transition-slow: .5s ease;
+
+/* -----------------------------------------------------------
+    layout
+----------------------------------------------------------- */
+--pgf-space-lg: 5%;
+--pgf-space-sm: 2.5%;
+
+/* -----------------------------------------------------------
+    header height
+----------------------------------------------------------- */
+/* pc */
+{block:text-root-height-headerPC}
+  --pgf-header-pc: {text:root-height-headerPC}px;
+{/block:text-root-height-headerPC}
+{block:not_text-root-height-headerPC}
+  --pgf-header-pc: 70px;
+{/block:not_text-root-height-headerPC}
+
+/* mobile */
+{block:text-root-height-headerMOBILE}
+  --pgf-header-base: {text:root-headerMOBILE}px;
+{/block:text-root-headerMOBILE}
+{block:not_text-root-headerMOBILE}
+  --pgf-header-base: 50px;
+{/block:not_text-root-headerMOBILE}
+
+/* -----------------------------------------------------------
+    border
+----------------------------------------------------------- */
+{block:root-color-subnav-border}
+    --pgf-border-subnav: {color:root-color-subnav-border};
+{/block:root-color-subnav-border}
+
+/* -----------------------------------------------------------
+    color chip
+----------------------------------------------------------- */
+/* pc */
+{block:text-root-size-colorChipPC}
+  --pg-chip-sizePC: {text:root-size-colorChipPC}px;
+{/block:text-root-size-colorChipPC}
+{block:not_text-root-size-colorChipPC}
+  --pg-chip-sizePC: 35px;
+{/block:not_text-root-size-colorChipPC}
+
+/* mobile */
+{block:text-root-size-colorChipMOBILE}
+  --pg-chip-sizeMOBILE: {text:root-colorChipMOBILE}px;
+{/block:text-root-colorChipMOBILE}
+{block:not_text-root-colorChipMOBILE}
+  --pg-chip-sizeMOBILE: 50px;
+{/block:not_text-root-colorChipMOBILE}
+
+/* -----------------------------------------------------------
+    preview
+----------------------------------------------------------- */
+{block:text-root-previewImgHeight}
+  --pg-preview-height: {text:root-previewImgHeight}px;
+{/block:text-root-previewImgHeight}
+
+
+}/* root end */
+
+
+/* -----------------------------------------------------------
+    sub nav
+----------------------------------------------------------- */
+{block:root-color-subnav-border}
+.t-global-header-sub {
+    border-top: 1px solid var(--pgf-border-subnav);
+}
+{/block:root-color-subnav-border}
+
+
+/* ===========================================================
+    RESET
+=========================================================== */
+html {box-sizing: border-box;-webkit-text-size-adjust: 100%;}
+*, *::before, *::after {box-sizing: inherit;}
+html, body, h1, h2, h3, p,span, ul, li, img, div, section, article {margin: 0;padding: 0;}
+ul, ol, li {list-style: none;margin: 0;padding: 0;}
+a {text-decoration: none;}
+img {max-width: 100%;display: block;}
+body {height: 100%;-webkit-font-smoothing: antialiased;text-rendering: optimizeLegibility;}
+h1, h2, h3, h4, h5, h6 {font-weight: inherit;}
+strong {font-weight: 900;}
+em {font-style: italic;}
+input, button, select, textarea {font: inherit;color: inherit;background: transparent;border: none;outline: none;}
+button {cursor: pointer;}
+
+
+/* ===========================================================
+    COMPORNENTS - Phantasma Framework
+=========================================================== */
+body {
+  font-family: var(--pgf-font-familly) !important;
+  color: var(--pgf-color-text, #000);
+  background-color: var(--pgf-color-bg, #fff) !important;
+}
+a:not([class]) {
+    color: var(--pgf-color-accent, #006effff) !important;
+    text-decoration: underline;
+}
+
+button:not([class]) {
+    background-color: #edededff;
+    border: 1px solid #bbb;
+    color: #000;
+    border-radius: 2px;
+}
+
+@media (hover: none) {
+  a:not([class]):active,
+  button:active {
+    /* スマホ専用の hover 的スタイル */
+  }
+}
+
+/* button[type="submit"] {
+    transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease;
+    background-color: rgba(0, 0, 0, 1) !important;
+    box-shadow: 0 2px 4px -2px rgba(0, 0, 0, 0.4);
+}
+button[type="submit"]:hover {
+    background-color: rgba(255,0,123,1) !important;
+    box-shadow: 0 6px 12px -6px rgba(255,0,123,.4);
+    transform: translateY(-4px);
+} */
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight: 900;
+    line-height: 1.15;
+}
+
+h1 {font-size: 2em;}
+h2 {font-size: 1.6em;}
+h3 {font-size: 1.4em;}
+h4 {font-size: 1.2em;}
+h5 {font-size: 1em;}
+h6 {font-size: 1em;}
+
+
+
+p:not([class]) {
+    line-height: 1.4;
+}
+
+dt:not([class]) {
+    font-weight: 900;
+    margin: 1.25em 0 .5em;
+}
+
+dd:not([class]),li:not([class]) {
+    margin-inline-start: 1em;
+}
+
+/* -----------------------------------------------------------
+  icon fonts base default
+----------------------------------------------------------- */
+    @font-face {
+        font-family: "baseicon";
+        font-style: normal;
+        font-weight: normal;
+        src: url("https://static.thebase.in/font/v1/baseicon.eot?317xhh");
+        src: url("https://static.thebase.in/font/v1/baseicon.eot?317xhh#iefix") format("embedded-opentype"),
+            url("https://static.thebase.in/font/v1/baseicon.ttf?317xhh") format("truetype"),
+            url("https://static.thebase.in/font/v1/baseicon.woff?317xhh") format("woff"),
+            url("https://static.thebase.in/font/v1/baseicon.svg?317xhh#baseicon") format("svg");
+    }
+    @font-face {
+        font-family: "shopicon";
+        font-style: normal;
+        font-weight: normal;
+        src: url("https://static.thebase.in/font/v1/shopicon.eot?317xhh");
+        src: url("https://static.thebase.in/font/v1/shopicon.eot?317xhh#iefix") format("embedded-opentype"),
+            url("https://static.thebase.in/font/v1/shopicon.ttf?317xhh") format("truetype"),
+            url("https://static.thebase.in/font/v1/shopicon.woff?317xhh") format("woff"),
+            url("https://static.thebase.in/font/v1/shopicon.svg?317xhh#baseicon") format("svg");
+    }
+    [class^="icon--base"] {
+        font-family: "baseicon" !important;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: normal;
+        line-height: 1;
+        speak: none;
+        text-transform: none;
+    }
+    [class^="icon--shop"] {
+        font-family: "shopicon" !important;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: normal;
+        line-height: 1;
+        speak: none;
+        text-transform: none;
+    }
+
+/* -----------------------------------------------------------
+  svg icons
+----------------------------------------------------------- */
+.pgf-icon {
+    display: inline-block;
+    height: 100%;
+    width: auto;
+}
+
+/* -----------------------------------------------------------
+  wrapper,container,contents
+----------------------------------------------------------- */
+.pgf-global-container {
+    width: 100%;
+    position: relative;
+}
+
+.pgf-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.pgf-contents {
+    width: 100%;
+}
+
+/* -----------------------------------------------------------
+  global footer
+----------------------------------------------------------- */
+.pgf-global-footer {
+    position: relative;
+}
+
+.pgf-wrapper--footer {
+    max-width: none;
+}
+
+.pgf-global-footer__about,
+.pgf-global-footer__sitemap {
+    width: 100%;
+}
+
+.pgf-global-footer__about-logo img {
+    display: block;
+}
+
+.pgf-global-footer__sitemap-link a {
+    position: relative;
+}
+
+.pgf-global-footer__sitemap-link a:before {
+    content: '';
+    position: absolute;
+}
+
+/* -----------------------------------------------------------
+  BASEMenu cart hide / messenger hide
+----------------------------------------------------------- */
+#baseMenu .cart {
+    display: none !important;
+}
+
+/* -----------------------------------------------------------
+  grid
+----------------------------------------------------------- */
+.pgf-grid {}
+
+.pgf-grid__col {
+    width: 100%;
+}
+
+@media screen and (min-width: 769px) {
+    .pgf-grid {
+        display: grid;
+    }
+}
+
+/* -----------------------------------------------------------
+    header & target hide animation
+----------------------------------------------------------- */
+/* hide header */
+body.is-state-hidden .js-scroll-header {
+    transform: translateY(calc(-1 * var(--pg-header-base)));
+}
+
+@media (min-width: 1025px) {
+    body.is-state-hidden .js-scroll-header {
+        transform: translateY(calc(-1 * var(--pg-header-pc)));
+    }
+}
+
+@media screen and (orientation: landscape) {
+    body.is-state-hidden .js-scroll-target[data-static="true"] {
+        transform: translateY(calc(-1 * var(--pg-header-base)));
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    body.is-state-hidden .js-scroll-target[data-static="true"] {
+        transform: translateY(calc(-1 * var(--pg-header-pc)));
+    }
+}
+
+/* -----------------------------------------------------------
+    header logo
+----------------------------------------------------------- */
+.pgf-global-header__logo {
+    line-height: 0;
+    margin: 0;
+}
+
+.pgf-global-header__logo a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.pgf-global-header__logo img {
+    filter: var(--pgf-color-header-logo);
+}
+
+/* -----------------------------------------------------------
+  header nav
+----------------------------------------------------------- */
+.pgf-nav-list {
+    display: flex;
+    justify-content: normal;
+    align-items: center;
+    height: 100%;
+}
+
+
+@media (min-width: 1025px) {
+
+}
+
+/* -----------------------------------------------------------
+  Hamburger
+----------------------------------------------------------- */
+.pgf-hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: none;
+    border: none;
+    padding: 0;
+    position: relative;
+    z-index: 9000;
+    cursor: pointer;
+}
+
+.pgf-hamburger span {
+    display: block;
+}
+
+/* @media (min-width: 1025px) {
+    .pgf-hamburger {
+        display: none;
+    }
+} */
+
+.pgf-drawer-toggle {
+    display: none;
+}
+
+/* 黒カーテン */
+.pgf-drawer-overlay {
+    position: fixed;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 8000;
+}
+
+.pgf-drawer-nav {
+    position: fixed;
+    pointer-events: auto;
+    z-index: 8500;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+#pgf-drawer-toggle:checked ~ .pgf-drawer-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.pgf-drawer-nav-inner {
+    pointer-events: auto;
+}
+
+.pgf-drawer-panel {
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.pgf-drawer-toggle:checked + .pgf-drawer-link + .pgf-drawer-panel {
+    height: auto;
+    opacity: 1;
+}
+
+.pgf-drawer-item a,
+.pgf-drawer-link,
+.pgf-category-item a {
+    display: block;
+}
+
+.pgf-drawer-item a,
+a.pgf-drawer-link,
+.pgf-category-item a {
+    line-height: 1;
+}
+
+.pgf-drawer-link--category,
+.pgf-drawer-link--service {
+    position: relative;
+}
+
+.pgf-drawer-link--category::after,
+.pgf-drawer-link--service::after {
+    content: "";
+    position: absolute;
+    transform-origin: center;
+}
+
+.pgf-drawer-nav {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.pgf-drawer-nav::-webkit-scrollbar {
+    display: none;
+}
+
+@media (min-width: 769px) {
+    .pgf-drawer-nav-inner {
+        padding: var(--pgf-header-pc);
+    }
+    .pgf-drawer-panel {
+        opacity: 1;
+        overflow: visible;
+        height: auto;
+    }
+
+    .pgf-drawer-toggle {
+        display: none;
+    }
+}
+
+
+/* -----------------------------------------------------------
+  sections
+----------------------------------------------------------- */
+.pgf-sections {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+}
+
+.pgf-section--order1 { order: 1; }
+.pgf-section--order2 { order: 2; }
+.pgf-section--order3 { order: 3; }
+.pgf-section--order4 { order: 4; }
+.pgf-section--order5 { order: 5; }
+.pgf-section--order6 { order: 6; }
+.pgf-section--order7 { order: 7; }
+.pgf-section--order8 { order: 8; }
+.pgf-section--order9 { order: 9; }
+.pgf-section--order10 { order: 10; }
+.pgf-section--order11 { order: 11; }
+.pgf-section--order12 { order: 12; }
+
+.pgf-section {flex-basis: 100%;}
+
+@media (min-width: 1025px) {
+    .pgf-section--size1 { flex-basis: 100%; }
+    .pgf-section--size2 { flex-basis: 50%; }
+    .pgf-section--size3 { flex-basis: 33.333%; }
+    .pgf-section--size4 { flex-basis: 25%; }
+}
